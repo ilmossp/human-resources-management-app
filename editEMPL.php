@@ -33,14 +33,14 @@ $row = mysqli_fetch_row($result);
     <table class="p-3 bg-slate-100 border border-gray-300 rounded-md shadow-lg border-separate">
             <tr>
                 <td class="p-3"><label for="nom" class="form-label">Nom </label></td class="p-3">
-                <td class="p-3"><input type="text" name="nom" class="rounded-full" value=<?php echo "$row[0]" ?>></td class="p-3">
+                <td class="p-3"><input type="text" name="nom" class="rounded-full" value="<?php echo "$row[0]" ?>"></td class="p-3">
             </tr>
             <tr>
                 <td class="p-3">
                     <label for="prenom" class="form-label">Prenom </label>
                 </td class="p-3">
                 <td class="p-3">
-                    <input type="text" name="prenom" class="rounded-full" value=<?php echo "$row[1]" ?>>
+                    <input type="text" name="prenom" class="rounded-full" value="<?php echo "$row[1]" ?>">
                 </td class="p-3">
             </tr>
             <tr>
@@ -59,7 +59,7 @@ $row = mysqli_fetch_row($result);
 
                 </td class="p-3">
                 <td class="p-3">
-                    <input type="text" name="adresse" class="rounded-full" value=<?php echo "$row[3]" ?>>
+                    <input type="text" name="adresse" class="rounded-full" value="<?php echo "$row[3]" ?>">
 
                 </td class="p-3">
             </tr>
@@ -71,7 +71,7 @@ $row = mysqli_fetch_row($result);
 
                 </td class="p-3">
                 <td class="p-3">
-                    <input type="date" name="dateNaissance" class="rounded-full w-full" value=<?php echo"$row[4]"?>>
+                    <input type="date" name="dateNaissance" class="rounded-full w-full" value="<?php echo"$row[4]"?>">
 
                 </td class="p-3">
             </tr>
@@ -83,7 +83,7 @@ $row = mysqli_fetch_row($result);
 
                 </td class="p-3">
                 <td class="p-3">
-                    <input type="text" name="numServ" class="rounded-full" value=<?php echo "$row[5]" ?>>
+                    <input type="text" name="numServ" class="rounded-full" value="<?php echo "$row[5]" ?>">
 
                 </td class="p-3">
             </tr>
