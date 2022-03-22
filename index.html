@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <title>login</title>
+</head>
+<body class="flex justify-center items-center flex-col h-screen w-screen">
+    
+    <form class="flex flex-col justify-center items-center p-5 bg-white border border-gray-300 rounded-lg shadow-lg w-96" action="verif.php" method="post" autocomplete="off">    
+        <h2 class="text-gray-900 font-bold text-xl mb-2">Login</h2>
+        <div class="flex flex-col items-start gap-2 py-3" id="username">
+            <label class="text-gray-500"for="username">Username</label>
+            <input class="rounded-full  border-gray-300 w-full" type="text" name="username">
+        </div>
+        <div class="flex flex-col gap-2 py-3" id="password">
+            <label class="text-gray-500" for="password">Password</label>
+            <input class="rounded-full border-gray-300 w-full" name="password" type="password">
+        </div>
+        <button type="submit" class="bg-teal-400 px-4 py-2 rounded-full text-white hover:bg-cyan-500 mt-6 mx-4 transition-all">Login</button>
+    </form>
+
+    <div class="fixed -bottom-20 w-screen justify-center transition-all hidden" id="pass-error">
+     <div class="flex items-center gap-2 text-white bg-red-400  px-5 py-3 rounded-full" >
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+        </svg>
+        <p id="warning">Password incorrect! Try again</p> 
+      </div>
+    </div>
+    <script>
+        const url= new URL(window.location);
+        const params=new URLSearchParams(url.search);
+        if (params.has("error")){
+            if (params.get("error")==2) document.getElementById("warning").innerHTML = "Username incorrect! Try again";
+            const x=document.getElementById("pass-error");
+            x.style.display= "flex"
+            x.style.bottom = "20px";
+            setTimeout(() => {x.style.bottom = "-80px";},3000);
+        }
+    </script>
+     
+ 
+</body>
+</html>
