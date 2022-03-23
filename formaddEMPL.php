@@ -1,11 +1,7 @@
 <?php
 session_start();
 if (session_status() == PHP_SESSION_ACTIVE && $_SESSION["rights"] == "AD") :
-
-
-
 ?>
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -28,7 +24,7 @@ if (session_status() == PHP_SESSION_ACTIVE && $_SESSION["rights"] == "AD") :
                 retour vers la liste
             </p>
         </a>
-        <form method="GET" autocomplete="off">
+        <form method="GET" autocomplete="off" action="/me/valAddEMPL.php">
             <table class="p-3 bg-slate-100 border border-gray-300 rounded-md shadow-lg border-separate">
                 <tr>
                     <td class="p-3"><label for="nom" class="form-label">Nom </label></td class="p-3">
@@ -109,26 +105,9 @@ if (session_status() == PHP_SESSION_ACTIVE && $_SESSION["rights"] == "AD") :
                 </svg>
                 <p id="warning">employee added successfully</p>
             </div>
-        </div>
-
-
-
-
-        <?php
-        $sett = isset($_GET["nom"]) && isset($_GET["prenom"]) && isset($_GET["sexe"]) && isset($_GET["adresse"]) && isset($_GET["dateNaissance"]) && isset($_GET["numServ"]);
-        if ($sett) {
-
-
-            $nom = $_GET["nom"];
-            $prenom = $_GET["prenom"];
-            $sexe = $_GET["sexe"];
-            $adresse = $_GET["adresse"];
-            $dateNaissance = $_GET["dateNaissance"];
-            $numServ = $_GET["numServ"];
-            header("Location: http://localhost/me/valAddEMPL.php?nom=$nom&prenom=$prenom&sexe=$sexe&adresse=$adresse&dateNaissance=$dateNaissance&numServ=$numServ");
-        }
-        if (isset($_GET["done"])) {
-            echo '<script>
+        </div> <?php
+                if (isset($_GET["done"])) {
+                    echo '<script>
         const url= new URL(window.location);
         const params=new URLSearchParams(url.search);
         if (params.has("done")){
@@ -138,17 +117,8 @@ if (session_status() == PHP_SESSION_ACTIVE && $_SESSION["rights"] == "AD") :
             setTimeout(() => {x.style.bottom = "-80px";},3000);
         }
     </script>';
-        }
-
-
-        ?>
-
-
-
-
-
-
-
+                }
+                ?>
     </body>
 
     </html>
